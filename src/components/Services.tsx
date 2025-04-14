@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Calculator, 
@@ -9,6 +8,8 @@ import {
   ShieldCheck 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const serviceItems = [
   {
@@ -16,14 +17,16 @@ const serviceItems = [
     description: "Calculate your tax liability accurately with our easy-to-use calculator",
     icon: Calculator,
     bgColor: "bg-blue-50",
-    action: "Calculate Now"
+    action: "Calculate Now",
+    path: "/tax-calculator"
   },
   {
     title: "GST Software",
     description: "Complete GST compliance solution with easy filing and return management",
     icon: Building,
     bgColor: "bg-green-50",
-    action: "Try GST Software"
+    action: "Try GST Software",
+    path: "/gst-software"
   },
   {
     title: "E-Invoicing",
@@ -56,30 +59,48 @@ const serviceItems = [
 ];
 
 const Services = () => {
+  const { toast } = useToast();
+  const navigate = useNavigate();
+
+  const handleServiceClick = (path: string, title: string) => {
+    toast({
+      title: `${title} Selected`,
+      description: "This feature is coming soon!",
+      duration: 3000,
+    });
+    console.log(`Navigating to: ${path}`);
+    // Uncomment when routes are set up:
+    // navigate(path);
+  };
+
   return (
-    <section className="py-16 bg-white">
+    <section className="py-8 sm:py-12 md:py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Services</h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Comprehensive tax and compliance solutions for individuals and businesses
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {serviceItems.map((item, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+            <Card 
+              key={index} 
+              className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
               <CardHeader className="pb-4">
                 <div className={`w-12 h-12 rounded-lg ${item.bgColor} flex items-center justify-center mb-4`}>
                   <item.icon className="text-cleartax-blue" size={24} />
                 </div>
-                <CardTitle className="text-xl mb-2">{item.title}</CardTitle>
+                <CardTitle className="text-lg sm:text-xl mb-2">{item.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">{item.description}</p>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">{item.description}</p>
                 <Button 
                   variant="outline" 
                   className="w-full border-cleartax-blue text-cleartax-blue hover:bg-cleartax-blue hover:text-white"
+                  onClick={() => handleServiceClick(item.path, item.title)}
                 >
                   {item.action}
                 </Button>
