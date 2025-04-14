@@ -1,50 +1,57 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  FileText, 
+  Calculator, 
   Building, 
-  BarChart3, 
-  CreditCard, 
-  Wallet, 
+  FileText, 
+  Receipt, 
+  ChartBar, 
   ShieldCheck 
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const serviceItems = [
   {
-    title: "Income Tax Filing",
-    description: "E-file income tax returns for individuals & professionals",
-    icon: FileText,
-    bgColor: "bg-blue-50"
+    title: "Tax Liability Calculator",
+    description: "Calculate your tax liability accurately with our easy-to-use calculator",
+    icon: Calculator,
+    bgColor: "bg-blue-50",
+    action: "Calculate Now"
   },
   {
     title: "GST Software",
-    description: "Effortlessly manage GST compliance and filing",
+    description: "Complete GST compliance solution with easy filing and return management",
     icon: Building,
-    bgColor: "bg-green-50"
+    bgColor: "bg-green-50",
+    action: "Try GST Software"
   },
   {
-    title: "Tax Saving Investment",
-    description: "Tax saving mutual fund investments with ELSS",
-    icon: BarChart3,
-    bgColor: "bg-purple-50"
+    title: "E-Invoicing",
+    description: "Generate, manage and track e-invoices seamlessly with our platform",
+    icon: Receipt,
+    bgColor: "bg-purple-50",
+    action: "Start E-Invoicing"
   },
   {
-    title: "TDS Returns",
-    description: "E-file TDS returns with form 16/16A generation",
-    icon: CreditCard,
-    bgColor: "bg-orange-50"
+    title: "Tax Returns",
+    description: "File your income tax returns easily with form 16 upload",
+    icon: FileText,
+    bgColor: "bg-orange-50",
+    action: "File Returns"
   },
   {
-    title: "Business Incorporation",
-    description: "Register your company, LLP or Partnership firm online",
-    icon: Wallet,
-    bgColor: "bg-red-50"
+    title: "Business Reports",
+    description: "Get detailed business analytics and tax planning insights",
+    icon: ChartBar,
+    bgColor: "bg-red-50",
+    action: "View Reports"
   },
   {
-    title: "Insurance",
-    description: "Get the best insurance policy for your needs",
+    title: "Compliance",
+    description: "Stay compliant with automatic updates and expert assistance",
     icon: ShieldCheck,
-    bgColor: "bg-yellow-50"
+    bgColor: "bg-yellow-50",
+    action: "Learn More"
   }
 ];
 
@@ -55,21 +62,27 @@ const Services = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Whether you're an individual or a business, we have the right tax and financial solutions for you
+            Comprehensive tax and compliance solutions for individuals and businesses
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {serviceItems.map((item, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader className="pb-2">
+              <CardHeader className="pb-4">
                 <div className={`w-12 h-12 rounded-lg ${item.bgColor} flex items-center justify-center mb-4`}>
                   <item.icon className="text-cleartax-blue" size={24} />
                 </div>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
+                <CardTitle className="text-xl mb-2">{item.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-gray-600 mb-4">{item.description}</p>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-cleartax-blue text-cleartax-blue hover:bg-cleartax-blue hover:text-white"
+                >
+                  {item.action}
+                </Button>
               </CardContent>
             </Card>
           ))}
