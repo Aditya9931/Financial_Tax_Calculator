@@ -63,14 +63,15 @@ const Services = () => {
   const navigate = useNavigate();
 
   const handleServiceClick = (path: string, title: string) => {
-    toast({
-      title: `${title} Selected`,
-      description: "This feature is coming soon!",
-      duration: 3000,
-    });
-    console.log(`Navigating to: ${path}`);
-    // Uncomment when routes are set up:
-    // navigate(path);
+    if (path) {
+      navigate(path);
+    } else {
+      toast({
+        title: `${title} Selected`,
+        description: "This feature is coming soon!",
+        duration: 3000,
+      });
+    }
   };
 
   return (
