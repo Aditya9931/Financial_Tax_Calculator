@@ -3,7 +3,6 @@ import {
   Calculator, 
   Building, 
   FileText, 
-  Receipt, 
   ChartBar, 
   ShieldCheck 
 } from "lucide-react";
@@ -35,13 +34,6 @@ const serviceItems = [
     bgColor: "bg-green-50",
     action: "Try GST Software",
     path: "/gst-software"
-  },
-  {
-    title: "E-Invoicing",
-    description: "Generate, manage and track e-invoices seamlessly with our platform",
-    icon: Receipt,
-    bgColor: "bg-purple-50",
-    action: "Start E-Invoicing"
   },
   {
     title: "Tax Returns",
