@@ -21,6 +21,14 @@ const serviceItems = [
     path: "/tax-calculator"
   },
   {
+    title: "SIP Calculator",
+    description: "Plan your investments and calculate returns with our SIP calculator",
+    icon: ChartBar,
+    bgColor: "bg-purple-50",
+    action: "Calculate SIP",
+    path: "/sip-calculator"
+  },
+  {
     title: "GST Software",
     description: "Complete GST compliance solution with easy filing and return management",
     icon: Building,

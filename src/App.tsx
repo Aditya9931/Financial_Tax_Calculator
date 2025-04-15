@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TaxCalculator from "./pages/TaxCalculator";
 import GSTSoftware from "./pages/GSTSoftware";
+import SIPCalculator from "./pages/SIPCalculator";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tax-calculator" element={<TaxCalculator />} />
+          <Route path="/sip-calculator" element={<SIPCalculator />} />
           <Route path="/gst-software" element={<GSTSoftware />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
