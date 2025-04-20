@@ -9,6 +9,7 @@ import TaxCalculator from "./pages/TaxCalculator";
 import GSTSoftware from "./pages/GSTSoftware";
 import SIPCalculator from "./pages/SIPCalculator";
 
+// henoo
 const queryClient = new QueryClient();
 
 const App = () => (
